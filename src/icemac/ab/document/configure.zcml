@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    i18n_domain="icemac.addressbook">
+
+  <include package="grokcore.component" file="meta.zcml"/>
+  <include package="grokcore.annotation" />
+  <grok:grok package="."
+             exclude="generations
+                      conftest
+                      test_*" />
+
+  <include package="zope.security" file="meta.zcml" />
+  <include package="zope.component" file="meta.zcml" />
+
+  <include file="permissions.zcml" />
+  <include file="roles.zcml" />
+  <include file="classes.zcml" />
+
+  <subscriber handler=".install.install_documents" />
+
+
+  <!-- Folder -->
+<!--   <subscriber
+      for=".interfaces.ICategory
+           zope.container.interfaces.IObjectAddedEvent"
+      handler=".category.unique_titles" />
+  <subscriber
+      for=".interfaces.ICategory
+           zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".category.unique_titles" />
+ -->
+
+  <include package=".browser" />
+  <include package=".generations" />
+  <!-- <include package=".masterdata" /> -->
+
+</configure>

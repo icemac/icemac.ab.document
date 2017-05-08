@@ -1,0 +1,39 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="icemac.addressbook">
+
+  <permission
+     id="icemac.ab.document.UseDocuments"
+     title="Use documents at all."
+     />
+
+  <!-- Folder -->
+
+  <permission
+     id="icemac.ab.document.ViewFolder"
+     title="ViewFolder"
+     />
+
+  <permission
+     id="icemac.ab.document.EditFolder"
+     title="EditFolder"
+     />
+
+  <permission
+     id="icemac.ab.document.EditFolderAnnotations"
+     title="EditFolderAnnotations"
+     />
+
+
+  <!-- Document -->
+
+  <permission
+     id="icemac.ab.document.ViewDocument"
+     title="ViewDocument"
+     />
+
+  <permission
+     id="icemac.ab.document.EditDocument"
+     title="EditDocument"
+     />
+
+</configure>

@@ -1,0 +1,58 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <!-- Folder -->
+  <class class=".model.Folder">
+    <implements
+      interface="zope.annotation.interfaces.IAttributeAnnotatable"
+      />
+    <require
+       permission="icemac.ab.document.ViewFolder"
+       interface=".interfaces.IFolder
+                  zope.container.interfaces.IReadContainer"
+       attributes="__annotations__"
+       />
+    <require
+      permission="icemac.ab.document.EditFolder"
+      set_schema=".interfaces.IFolder"
+      interface="zope.container.interfaces.IWriteContainer"
+      />
+    <require
+      permission="icemac.ab.document.EditFolderAnnotations"
+      set_attributes="__annotations__"
+      />
+  </class>
+
+  <utility
+      component="icemac.ab.document.model.folder_entity"
+      name="icemac.ab.document.model.Folder" />
+
+  <!-- DocumentProvider for Addressbook -->
+  <class class="icemac.addressbook.addressbook.AddressBook">
+    <implements interface=".interfaces.IDocumentsProvider" />
+    <require
+       permission="icemac.ab.document.UseDocuments"
+       interface=".interfaces.IDocumentsProvider"
+       />
+  </class>
+
+  <!-- Document -->
+  <class class=".model.Document">
+    <implements
+      interface="zope.annotation.interfaces.IAttributeAnnotatable" />
+    <require
+       permission="icemac.ab.document.ViewDocument"
+       interface=".interfaces.IDocument"
+       attributes="__annotations__"
+       />
+    <require
+      permission="icemac.ab.document.EditDocument"
+      set_schema=".interfaces.IDocument"
+      set_attributes="__annotations__"
+      />
+  </class>
+
+  <utility
+      component="icemac.ab.document.model.document_entity"
+      name="icemac.ab.document.model.Document" />
+
+</configure>

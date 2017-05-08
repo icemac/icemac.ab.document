@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <include package="icemac.addressbook" file="ftesting-base.zcml" />
+  <include package="icemac.ab.document" />
+
+  <!-- Principal who is able to use documents -->
+  <principal
+      id="icemac.ab.document.user"
+      title="documents user"
+      login="doc-user"
+      password="doc-user"
+      />
+  <grant role="icemac.ab.document.Editor"
+         principal="icemac.ab.document.user" />
+
+</configure>

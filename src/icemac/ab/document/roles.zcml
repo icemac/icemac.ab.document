@@ -1,0 +1,52 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="icemac.addressbook">
+
+
+  <!-- Global role -->
+  <role
+      id="icemac.ab.document.User"
+      title="Docment user"
+      description="Role which allows to use the documents at all."
+      />
+
+
+  <!-- Editor -->
+  <role
+      id="icemac.ab.document.Editor"
+      title="Docment editor"
+      description="Role which allows to edit documents."
+      />
+
+  <subscriber
+    for="*"
+    provides="icemac.addressbook.principals.interfaces.IEditorRole"
+    factory=".roles.editor_role" />
+
+
+  <!-- Visitor -->
+  <role
+      id="icemac.ab.document.Visitor"
+      title="Document visitor"
+      description="Role which allows to visit documents."
+      />
+
+  <subscriber
+    for="*"
+    provides="icemac.addressbook.principals.interfaces.IVisitorRole"
+    factory=".roles.visitor_role" />
+
+
+  <!-- Administrator -->
+
+  <grant
+     role="icemac.addressbook.global.Administrator"
+     permissions="
+        icemac.ab.document.UseDocuments
+        icemac.ab.document.ViewFolder
+        icemac.ab.document.EditFolder
+        icemac.ab.document.EditFolderAnnotations
+        icemac.ab.document.ViewDocument
+        icemac.ab.document.EditDocument
+     " />
+
+</configure>
