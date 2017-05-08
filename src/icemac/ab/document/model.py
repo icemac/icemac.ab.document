@@ -14,6 +14,7 @@ class Folder(zope.container.btree.BTreeContainer):
 
     zope.interface.implements(icemac.ab.document.interfaces.IFolder)
 
+
 folder_entity = icemac.addressbook.entities.create_entity(
     _(u'folder'), icemac.ab.document.interfaces.IFolder, Folder)
 
@@ -22,6 +23,7 @@ class Document(icemac.addressbook.file.file.File):
     """Container containing documents and/or other folders."""
 
     zope.interface.implements(icemac.ab.document.interfaces.IDocument)
+
 
 document_entity = icemac.addressbook.entities.create_entity(
     _(u'document'), icemac.ab.document.interfaces.IDocument, Document)
