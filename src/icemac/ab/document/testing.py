@@ -5,7 +5,10 @@ class Browser(icemac.addressbook.testing.Browser):
     """Browser adapted for documents."""
 
     BASE = 'http://localhost/ab/'
+    DOCUMENTS_OVERVIEW_URL = BASE + '++attribute++documents'
     DOCUMENTS_INDEX_URL = BASE + '++attribute++documents/@@index.html'
+
+    DOCUMENT_IN_ROOT_VIEW_URL = BASE + '++attribute++documents/Document'
 
 
 class DocumentWebdriverPageObjectBase(

@@ -23,9 +23,21 @@ def address_book(addressBookConnectionF):
 @pytest.fixture(scope='function')
 def browser(browserWsgiAppS):
     """Fixture for testing with zope.testbrowser."""
-    assert icemac.addressbook.conftest.CURRENT_CONNECTION is not None, \
+    assert icemac.addressbook.testing.CURRENT_CONNECTION is not None, \
         "The `browser` fixture needs a database fixture like `address_book`."
     return icemac.ab.document.testing.Browser(wsgi_app=browserWsgiAppS)
+
+
+# Fixtures to help asserting
+
+@pytest.fixture(scope='function')
+def sitemenu(browser):
+    """Helper fixture to test the selections in the site menu.
+
+    Cannot be moved to `icemac.addressbook.fixtures` as it depends on the
+    local browser fixture.
+    """
+    return icemac.addressbook.testing.SiteMenu
 
 
 # Fixtures to create objects:

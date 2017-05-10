@@ -10,7 +10,7 @@
       login="doc-user"
       password="doc-user"
       />
-  <grant role="icemac.ab.document.Editor"
+  <grant role="icemac.ab.document.User"
          principal="icemac.ab.document.user" />
 
 </configure>
