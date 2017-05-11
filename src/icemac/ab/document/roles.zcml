@@ -47,12 +47,12 @@
   <grant
      role="icemac.addressbook.global.Administrator"
      permissions="
-        icemac.ab.document.UseDocuments
-        icemac.ab.document.ViewFolder
+        icemac.ab.document.EditDocument
         icemac.ab.document.EditFolder
         icemac.ab.document.EditFolderAnnotations
+        icemac.ab.document.UseDocuments
         icemac.ab.document.ViewDocument
-        icemac.ab.document.EditDocument
+        icemac.ab.document.ViewFolder
      " />
 
 </configure>
