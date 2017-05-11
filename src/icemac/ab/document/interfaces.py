@@ -22,6 +22,10 @@ class IDocumentObject(zope.interface.Interface):
     """
 
 
+class IRootFolder(IDocumentObject):
+    """Top level storage for folders and documents."""
+
+
 class IFolder(IDocumentObject):
     """Storage for containers and documents."""
 

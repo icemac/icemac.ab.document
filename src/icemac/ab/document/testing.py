@@ -9,6 +9,7 @@ class Browser(icemac.addressbook.testing.Browser):
     DOCUMENTS_INDEX_URL = BASE + '++attribute++documents/@@index.html'
 
     DOCUMENT_IN_ROOT_VIEW_URL = BASE + '++attribute++documents/Document'
+    FOLDER_IN_ROOT_VIEW_URL = BASE + '++attribute++documents/Folder'
 
 
 class DocumentWebdriverPageObjectBase(

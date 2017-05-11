@@ -32,6 +32,13 @@ def test_menu__document_menu__4(address_book, document_menu, DocumentFactory):
         document_menu.browser.DOCUMENT_IN_ROOT_VIEW_URL)
 
 
+def test_menu__document_menu__5(address_book, document_menu, FolderFactory):
+    """The documents tab is not selected on a folder."""
+    FolderFactory(address_book, 'foo folder')
+    assert document_menu.item_selected(
+        document_menu.browser.FOLDER_IN_ROOT_VIEW_URL)
+
+
 def test_menu__DocumentMenuItem__1(address_book, browser):
     """It allows to navigate the to calendar.
 

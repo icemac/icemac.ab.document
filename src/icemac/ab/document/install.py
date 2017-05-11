@@ -12,8 +12,8 @@ def install_documents(event):
     address_book = event.address_book
     with zope.component.hooks.site(address_book):
         icemac.addressbook.addressbook.create_and_register(
-            address_book, 'documents', icemac.ab.document.model.Folder,
-            icemac.ab.document.interfaces.IFolder)
+            address_book, 'documents', icemac.ab.document.model.RootFolder,
+            icemac.ab.document.interfaces.IRootFolder)
         update_documents_infrastructure(address_book)
 
 

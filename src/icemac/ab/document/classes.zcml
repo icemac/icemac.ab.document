@@ -1,5 +1,27 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+  <!-- RootFolder -->
+  <class class=".model.RootFolder">
+    <implements
+      interface="zope.annotation.interfaces.IAttributeAnnotatable"
+      />
+    <require
+       permission="icemac.ab.document.UseDocuments"
+       interface=".interfaces.IRootFolder
+                  zope.container.interfaces.IReadContainer"
+       attributes="__annotations__"
+       />
+    <require
+      permission="icemac.ab.document.EditRootFolder"
+      set_schema=".interfaces.IRootFolder"
+      interface="zope.container.interfaces.IWriteContainer"
+      />
+    <require
+      permission="icemac.ab.document.EditRootFolderAnnotations"
+      set_attributes="__annotations__"
+      />
+  </class>
+
   <!-- Folder -->
   <class class=".model.Folder">
     <implements

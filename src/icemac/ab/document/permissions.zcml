@@ -6,6 +6,20 @@
      title="Use documents at all."
      />
 
+
+  <!-- RootFolder -->
+
+  <permission
+     id="icemac.ab.document.EditRootFolder"
+     title="EditRootFolder"
+     />
+
+  <permission
+     id="icemac.ab.document.EditRootFolderAnnotations"
+     title="EditRootFolderAnnotations"
+     />
+
+
   <!-- Folder -->
 
   <permission

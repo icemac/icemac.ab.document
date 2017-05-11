@@ -9,6 +9,12 @@ import zope.container.btree
 import zope.interface
 
 
+class RootFolder(zope.container.btree.BTreeContainer):
+    """Top level container for documents and/or folders."""
+
+    zope.interface.implements(icemac.ab.document.interfaces.IRootFolder)
+
+
 class Folder(zope.container.btree.BTreeContainer):
     """Container containing documents and/or other folders."""
 

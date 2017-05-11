@@ -47,6 +47,13 @@
 
   <gocept:pagelet
         name="index.html"
+        for="..interfaces.IRootFolder"
+        layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+        class=".rootfolder.RootFolderView"
+        permission="icemac.ab.document.UseDocuments" />
+
+  <gocept:pagelet
+        name="index.html"
         for="..interfaces.IFolder"
         layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
         class=".folder.FolderView"

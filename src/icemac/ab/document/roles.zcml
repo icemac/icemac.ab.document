@@ -50,6 +50,8 @@
         icemac.ab.document.EditDocument
         icemac.ab.document.EditFolder
         icemac.ab.document.EditFolderAnnotations
+        icemac.ab.document.EditRootFolder
+        icemac.ab.document.EditRootFolderAnnotations
         icemac.ab.document.UseDocuments
         icemac.ab.document.ViewDocument
         icemac.ab.document.ViewFolder

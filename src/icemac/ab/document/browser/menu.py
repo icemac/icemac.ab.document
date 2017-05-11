@@ -23,6 +23,8 @@ class DocumentsMenuItemSelectedChecker(
 
     @property
     def selected(self):
+        if icemac.ab.document.interfaces.IRootFolder.providedBy(self.context):
+            return True
         if icemac.ab.document.interfaces.IFolder.providedBy(self.context):
             return True
         if icemac.ab.document.interfaces.IDocument.providedBy(self.context):
