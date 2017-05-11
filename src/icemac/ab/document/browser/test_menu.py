@@ -26,7 +26,7 @@ def test_menu__document_menu__3(document_menu):
 
 
 def test_menu__document_menu__4(address_book, document_menu, DocumentFactory):
-    """The documents tab is not selected on master data."""
+    """The documents tab is not selected on a document."""
     DocumentFactory(address_book, 'foo doc')
     assert document_menu.item_selected(
         document_menu.browser.DOCUMENT_IN_ROOT_VIEW_URL)
