@@ -9,26 +9,30 @@ import zope.container.btree
 import zope.interface
 
 
+@zope.interface.implementer(
+    icemac.ab.document.interfaces.IRootFolder,
+    icemac.ab.document.interfaces.IFolder)
 class RootFolder(zope.container.btree.BTreeContainer):
     """Top level container for documents and/or folders."""
 
-    zope.interface.implements(icemac.ab.document.interfaces.IRootFolder)
 
 
+@zope.interface.implementer(
+    icemac.ab.document.interfaces.IFolder)
 class Folder(zope.container.btree.BTreeContainer):
     """Container containing documents and/or other folders."""
 
-    zope.interface.implements(icemac.ab.document.interfaces.IFolder)
 
 
 folder_entity = icemac.addressbook.entities.create_entity(
     _(u'folder'), icemac.ab.document.interfaces.IFolder, Folder)
 
 
+@zope.interface.implementer(
+    icemac.ab.document.interfaces.IDocument)
 class Document(icemac.addressbook.file.file.File):
     """Container containing documents and/or other folders."""
 
-    zope.interface.implements(icemac.ab.document.interfaces.IDocument)
 
 
 document_entity = icemac.addressbook.entities.create_entity(
