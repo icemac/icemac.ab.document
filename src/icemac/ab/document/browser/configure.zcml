@@ -45,25 +45,7 @@
        provides="icemac.addressbook.interfaces.IStartpageData"
        factory=".startpage.documents" />
 
-  <gocept:pagelet
-        name="index.html"
-        for="..interfaces.IRootFolder"
-        layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
-        class=".rootfolder.RootFolderView"
-        permission="icemac.ab.document.UseDocuments" />
-
-  <gocept:pagelet
-        name="index.html"
-        for="..interfaces.IFolder"
-        layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
-        class=".folder.FolderView"
-        permission="icemac.ab.document.UseDocuments" />
-
-  <gocept:pagelet
-        name="index.html"
-        for="..interfaces.IDocument"
-        layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
-        class=".document.DocumentView"
-        permission="icemac.ab.document.UseDocuments" />
+  <include file="document.zcml" />
+  <include file="folder.zcml" />
 
 </configure>

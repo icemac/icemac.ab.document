@@ -47,6 +47,7 @@
   <grant
      role="icemac.addressbook.global.Administrator"
      permissions="
+        icemac.ab.document.AddDocument
         icemac.ab.document.EditDocument
         icemac.ab.document.EditFolder
         icemac.ab.document.EditFolderAnnotations

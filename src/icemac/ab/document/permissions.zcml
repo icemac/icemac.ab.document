@@ -41,6 +41,11 @@
   <!-- Document -->
 
   <permission
+     id="icemac.ab.document.AddDocument"
+     title="AddDocument"
+     />
+
+  <permission
      id="icemac.ab.document.ViewDocument"
      title="ViewDocument"
      />

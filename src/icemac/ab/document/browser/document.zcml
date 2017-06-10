@@ -1,0 +1,49 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   xmlns:gocept="http://namespaces.gocept.com/zcml"
+   xmlns:z3c="http://namespaces.zope.org/z3c"
+   i18n_domain="icemac.addressbook">
+
+  <z3c:addMenuItem
+     manager="icemac.addressbook.browser.menus.interfaces.IAddMenu"
+     for="icemac.ab.document.interfaces.IFolder"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     name="document"
+     title="document"
+     viewName="@@addDocument.html"
+     permission="icemac.ab.document.AddDocument"
+     weight="1"
+     />
+
+  <z3c:pagelet
+     for="icemac.ab.document.interfaces.IFolder"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     name="addDocument.html"
+     class=".document.Add"
+     permission="icemac.ab.document.AddDocument"
+     />
+
+  <browser:defaultView
+     for="icemac.ab.document.interfaces.IDocument"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     name="download.html"
+     />
+
+  <z3c:pagelet
+     name="edit.html"
+     for="icemac.ab.document.interfaces.IDocument"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     class=".document.Edit"
+     permission="icemac.ab.document.EditDocument"
+     />
+
+  <z3c:pagelet
+     name="delete.html"
+     for="icemac.ab.document.interfaces.IDocument"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     class=".document.Delete"
+     permission="icemac.ab.document.EditDocument"
+     />
+
+</configure>

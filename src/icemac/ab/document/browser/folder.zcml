@@ -1,0 +1,16 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   xmlns:gocept="http://namespaces.gocept.com/zcml"
+   xmlns:z3c="http://namespaces.zope.org/z3c"
+   i18n_domain="icemac.addressbook">
+
+  <z3c:pagelet
+     for="icemac.ab.document.interfaces.IFolder"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     name="index.html"
+     class=".folder.DocumentsList"
+     permission="icemac.ab.document.ViewFolder"
+     />
+
+</configure>

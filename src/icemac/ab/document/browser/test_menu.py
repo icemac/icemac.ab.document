@@ -27,9 +27,10 @@ def test_menu__document_menu__3(document_menu):
 
 def test_menu__document_menu__4(address_book, document_menu, DocumentFactory):
     """The documents tab is not selected on a document."""
-    DocumentFactory(address_book, 'foo doc')
+    DocumentFactory(address_book, 'foo.doc', 'foo doc')
+    # document_menu.browser.handleErrors = False
     assert document_menu.item_selected(
-        document_menu.browser.DOCUMENT_IN_ROOT_VIEW_URL)
+        document_menu.browser.DOCUMENT_IN_ROOT_EDIT_URL)
 
 
 def test_menu__document_menu__5(address_book, document_menu, FolderFactory):
@@ -44,7 +45,7 @@ def test_menu__DocumentMenuItem__1(address_book, browser):
 
     The calendar view defaults to the month overview.
     """
-    browser.login('doc-user')
+    browser.login('mgr')
     browser.open(browser.ADDRESS_BOOK_DEFAULT_URL)
     assert browser.DOCUMENTS_OVERVIEW_URL == browser.getLink('Documents').url
     browser.getLink('Documents').click()

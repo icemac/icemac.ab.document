@@ -19,8 +19,12 @@
 
   <subscriber handler=".install.install_documents" />
 
+  <adapter
+      for=".interfaces.IDocument"
+      factory="icemac.addressbook.adapter.obj_dot_title" />
 
-  <!-- Folder -->
+
+  <!-- Document -->
 <!--   <subscriber
       for=".interfaces.ICategory
            zope.container.interfaces.IObjectAddedEvent"

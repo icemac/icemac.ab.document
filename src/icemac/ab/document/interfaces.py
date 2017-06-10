@@ -1,3 +1,5 @@
+from icemac.addressbook.i18n import _
+import icemac.addressbook.file.interfaces
 import zope.interface
 
 
@@ -30,5 +32,12 @@ class IFolder(IDocumentObject):
     """Storage for containers and documents."""
 
 
-class IDocument(zope.interface.Interface):
+class IDocument(icemac.addressbook.file.interfaces.IFile):
     """Document storing binary data."""
+
+    title = zope.schema.TextLine(
+        title=_(u'document title'),
+        description=_(u'Name which is shown in the list view.'))
+
+
+IDocument['title'].order = -1

@@ -60,6 +60,8 @@ def DocumentFactory():
     def create_document(address_book, title, parent=None, **kw):
         if parent is None:
             parent = address_book.documents
+        kw['name'] = name
+        kw['title'] = title
         return icemac.addressbook.testing.create(
             address_book, parent,
             icemac.ab.document.interfaces.IDocument, **kw)
