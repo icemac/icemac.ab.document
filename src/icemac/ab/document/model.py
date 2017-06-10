@@ -4,6 +4,7 @@ import icemac.ab.document.interfaces
 import icemac.addressbook.entities
 import icemac.addressbook.file.file
 import icemac.addressbook.interfaces
+import icemac.addressbook.utils
 import zope.container.btree
 import zope.interface
 import zope.schema.fieldproperty
@@ -44,3 +45,5 @@ class Document(icemac.addressbook.file.file.File):
 
 document_entity = icemac.addressbook.entities.create_entity(
     _(u'document'), icemac.ab.document.interfaces.IDocument, Document)
+unique_titles = icemac.addressbook.utils.unique_by_attr_factory(
+    'title', _(u'There is already an object with this title in this folder.'))

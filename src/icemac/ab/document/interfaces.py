@@ -31,6 +31,10 @@ class IRootFolder(IDocumentObject):
 class IFolder(IDocumentObject):
     """Storage for containers and documents."""
 
+    title = zope.schema.TextLine(
+        title=_(u'folder title'),
+        description=_(u'Name which is shown in the list view.'))
+
 
 class IDocument(icemac.addressbook.file.interfaces.IFile):
     """Document storing binary data."""

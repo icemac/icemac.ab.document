@@ -64,3 +64,59 @@ def test_document__Add__Download__Edit__Delete__1(
     assert (
         'This folder does not (yet) contain any documents.' in
         browser.contents)
+
+
+def test_document__Add__1(address_book, tmpfile, DocumentFactory, browser):
+    """It requires unique document titles inside the folder."""
+    DocumentFactory(address_book, u'foo.txt', u'foo')
+    browser.login('mgr')
+    browser.open(browser.DOCUMENT_ADD_URL)
+    fh, filename = tmpfile('File contents', '.txt')
+    browser.getControl('document title').value = 'foo'
+    browser.getControl('file').add_file(fh, 'text/plain', filename)
+    browser.getControl('Add').click()
+    assert 'There were some errors.' in browser.contents
+    assert ('There is already an object with this title in this folder.'
+            in browser.contents)
+
+
+def test_document__Add__2(
+        address_book, tmpfile, FolderFactory, DocumentFactory, browser):
+    """It allows duplicate document titles in different folders."""
+    folder = FolderFactory(address_book, u'special docs')
+    DocumentFactory(address_book, u'foo.txt', u'foo', parent=folder)
+    browser.login('mgr')
+    browser.open(browser.DOCUMENT_ADD_URL)
+    fh, filename = tmpfile('File contents', '.txt')
+    browser.getControl('document title').value = 'foo'
+    browser.getControl('file').add_file(fh, 'text/plain', filename)
+    browser.getControl('Add').click()
+    assert '"foo" added.' == browser.message
+    assert browser.DOCUMENTS_OVERVIEW_URL == browser.url
+
+
+def test_document__Edit__1(address_book, DocumentFactory, browser):
+    """It requires unique document titles inside the folder."""
+    DocumentFactory(address_book, u'bar.txt', u'bar')
+    DocumentFactory(address_book, u'foo.txt', u'foo')
+    browser.login('mgr')
+    browser.open(browser.DOCUMENT_IN_ROOT_EDIT_URL)
+    browser.getControl('document title').value = 'foo'
+    browser.getControl('Apply').click()
+    assert 'There were some errors.' in browser.contents
+    assert ('There is already an object with this title in this folder.'
+            in browser.contents)
+
+
+def test_document__Edit__2(
+        address_book, FolderFactory, DocumentFactory, browser):
+    """It allows duplicate document titles in different folders."""
+    DocumentFactory(address_book, u'foo.txt', u'bar')
+    folder = FolderFactory(address_book, u'special docs')
+    DocumentFactory(address_book, u'foo.txt', u'foo', parent=folder)
+    browser.login('mgr')
+    browser.open(browser.DOCUMENT_IN_ROOT_EDIT_URL)
+    browser.getControl('document title').value = 'foo'
+    browser.getControl('Apply').click()
+    assert 'Data successfully updated.' == browser.message
+    assert browser.DOCUMENTS_OVERVIEW_URL == browser.url

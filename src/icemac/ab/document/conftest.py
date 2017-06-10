@@ -58,8 +58,8 @@ def FolderFactory():
 def DocumentFactory():
     """Create a document folder."""
     def create_document(address_book, name, title, parent=None, **kw):
-        assert parent is None, "Change me when adding to an existing folder"
-        parent = address_book.documents
+        if parent is None:
+            parent = address_book.documents
         kw['name'] = name
         kw['title'] = title
         return icemac.addressbook.testing.create(

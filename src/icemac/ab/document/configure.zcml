@@ -25,15 +25,15 @@
 
 
   <!-- Document -->
-<!--   <subscriber
-      for=".interfaces.ICategory
-           zope.container.interfaces.IObjectAddedEvent"
-      handler=".category.unique_titles" />
   <subscriber
-      for=".interfaces.ICategory
+      for=".interfaces.IDocument
+           zope.container.interfaces.IObjectAddedEvent"
+      handler=".model.unique_titles" />
+  <subscriber
+      for=".interfaces.IDocument
            zope.lifecycleevent.IObjectModifiedEvent"
-      handler=".category.unique_titles" />
- -->
+      handler=".model.unique_titles" />
+
 
   <include package=".browser" />
   <include package=".generations" />
