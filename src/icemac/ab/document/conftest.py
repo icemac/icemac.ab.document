@@ -47,8 +47,8 @@ def sitemenu(browser):
 def FolderFactory():
     """Create a document folder."""
     def create_folder(address_book, title, parent=None, **kw):
-        if parent is None:
-            parent = address_book.documents
+        assert parent is None, "Change me when adding to an existing folder"
+        parent = address_book.documents
         return icemac.addressbook.testing.create(
             address_book, parent, icemac.ab.document.interfaces.IFolder, **kw)
     return create_folder
@@ -57,9 +57,9 @@ def FolderFactory():
 @pytest.fixture(scope='session')
 def DocumentFactory():
     """Create a document folder."""
-    def create_document(address_book, title, parent=None, **kw):
-        if parent is None:
-            parent = address_book.documents
+    def create_document(address_book, name, title, parent=None, **kw):
+        assert parent is None, "Change me when adding to an existing folder"
+        parent = address_book.documents
         kw['name'] = name
         kw['title'] = title
         return icemac.addressbook.testing.create(
