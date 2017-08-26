@@ -1,5 +1,6 @@
 from icemac.addressbook.i18n import _
 import icemac.ab.document.interfaces
+import icemac.addressbook.browser.breadcrumb
 import icemac.addressbook.browser.table
 import z3c.table.column
 
@@ -8,6 +9,7 @@ class DocumentsList(icemac.addressbook.browser.table.Table):
     """List the documents in the folder."""
 
     no_rows_message = _('This folder does not (yet) contain any documents.')
+    title = icemac.addressbook.browser.breadcrumb.DO_NOT_SHOW
 
     def setUpColumns(self):
         return [

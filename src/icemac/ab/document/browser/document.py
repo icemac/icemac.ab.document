@@ -7,7 +7,7 @@ import icemac.ab.document.interfaces
 class Add(icemac.addressbook.browser.file.file.Add):
     """Add a document."""
 
-    label = _(u'Add new document')
+    title = _(u'Add new document')
     interface = icemac.ab.document.interfaces.IDocument
     class_ = icemac.ab.document.model.Document
 
@@ -17,7 +17,7 @@ class Edit(icemac.addressbook.browser.base.BaseEditForm):
 
     interface = icemac.ab.document.interfaces.IDocument
     next_url = 'parent'
-    label = _('Edit document')
+    title = _('Edit document')
 
     def applyChanges(self, data):
         changes = super(Edit, self).applyChanges(data)
@@ -31,5 +31,6 @@ class Delete(icemac.addressbook.browser.base.BaseDeleteForm):
 
     next_url = 'parent'
     label = _(u'Do you really want to delete this document?')
+    title = _('Delete document')
     interface = icemac.ab.document.interfaces.IDocument
     field_names = ('title', 'name')

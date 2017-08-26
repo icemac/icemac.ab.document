@@ -33,9 +33,8 @@ folder_entity = icemac.addressbook.entities.create_entity(
     _(u'folder'), icemac.ab.document.interfaces.IFolder, Folder)
 
 
-@zope.interface.implementer(
-    icemac.ab.document.interfaces.IDocument)
-class Document(icemac.addressbook.file.file.File):
+@zope.interface.implementer(icemac.ab.document.interfaces.IDocument)
+class Document(icemac.addressbook.file.file.BaseFile):
     """Container containing documents and/or other folders."""
 
     zope.schema.fieldproperty.createFieldProperties(

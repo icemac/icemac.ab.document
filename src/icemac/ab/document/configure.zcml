@@ -23,6 +23,10 @@
       for=".interfaces.IDocument"
       factory="icemac.addressbook.adapter.obj_dot_title" />
 
+  <adapter
+      for=".interfaces.IFolder"
+      factory="icemac.addressbook.adapter.obj_dot_title" />
+
 
   <!-- Document -->
   <subscriber
