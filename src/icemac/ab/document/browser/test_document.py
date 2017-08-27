@@ -120,3 +120,14 @@ def test_document__Edit__2(
     browser.getControl('Apply').click()
     assert 'Data successfully updated.' == browser.message
     assert browser.DOCUMENTS_OVERVIEW_URL == browser.url
+
+
+def test_document__Delete__1(address_book, DocumentFactory, browser):
+    """It allows to cancel deleting of a document."""
+    DocumentFactory(address_book, u'foo.txt', u'bar')
+    browser.login('mgr')
+    browser.open(browser.DOCUMENTS_OVERVIEW_URL)
+    browser.getLink('Delete').click()
+    assert browser.DOCUMENT_IN_ROOT_DELETE_URL == browser.url
+    browser.getControl('No, cancel').click()
+    assert browser.DOCUMENTS_OVERVIEW_URL == browser.url

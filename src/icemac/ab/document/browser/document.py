@@ -30,6 +30,7 @@ class Delete(icemac.addressbook.browser.base.BaseDeleteForm):
     """Are you sure question for deleting a document."""
 
     next_url = 'parent'
+    next_url_after_cancel = 'parent'
     title = _('Delete document')
     label = _('Do you really want to delete this document?')
     interface = icemac.ab.document.interfaces.IDocument
