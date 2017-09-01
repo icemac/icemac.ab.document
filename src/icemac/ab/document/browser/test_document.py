@@ -61,9 +61,7 @@ def test_document__Add__Download__Edit__Delete__1(
     assert 'Do you really want to delete this document?' in browser.contents
     browser.getControl('Yes').click()
     assert '"bar" deleted.' == browser.message
-    assert (
-        'This folder does not (yet) contain any documents.' in
-        browser.contents)
+    assert 'This folder is (currently) empty.' in browser.contents
 
 
 def test_document__Add__1(address_book, tmpfile, DocumentFactory, browser):

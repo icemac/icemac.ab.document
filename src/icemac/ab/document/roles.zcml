@@ -49,6 +49,7 @@
      permissions="
         icemac.ab.document.AddDocument
         icemac.ab.document.EditDocument
+        icemac.ab.document.AddFolder
         icemac.ab.document.EditFolder
         icemac.ab.document.EditFolderAnnotations
         icemac.ab.document.EditRootFolder

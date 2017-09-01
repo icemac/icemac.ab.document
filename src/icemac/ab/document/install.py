@@ -22,3 +22,5 @@ def update_documents_infrastructure(address_book):
     with zope.component.hooks.site(address_book):
         icemac.addressbook.addressbook.add_entity_to_order(
             address_book.orders, icemac.ab.document.interfaces.IDocument)
+        icemac.addressbook.addressbook.add_entity_to_order(
+            address_book.orders, icemac.ab.document.interfaces.IFolder)

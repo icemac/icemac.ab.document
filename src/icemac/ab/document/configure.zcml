@@ -19,16 +19,23 @@
 
   <subscriber handler=".install.install_documents" />
 
-  <adapter
-      for=".interfaces.IDocument"
-      factory="icemac.addressbook.adapter.obj_dot_title" />
-
+  <!-- Folder -->
   <adapter
       for=".interfaces.IFolder"
       factory="icemac.addressbook.adapter.obj_dot_title" />
-
+  <subscriber
+      for=".interfaces.IFolder
+           zope.container.interfaces.IObjectAddedEvent"
+      handler=".model.unique_titles" />
+  <subscriber
+      for=".interfaces.IFolder
+           zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".model.unique_titles" />
 
   <!-- Document -->
+  <adapter
+      for=".interfaces.IDocument"
+      factory="icemac.addressbook.adapter.obj_dot_title" />
   <subscriber
       for=".interfaces.IDocument
            zope.container.interfaces.IObjectAddedEvent"

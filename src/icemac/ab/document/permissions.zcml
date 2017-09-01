@@ -23,6 +23,11 @@
   <!-- Folder -->
 
   <permission
+     id="icemac.ab.document.AddFolder"
+     title="AddFolder"
+     />
+
+  <permission
      id="icemac.ab.document.ViewFolder"
      title="ViewFolder"
      />

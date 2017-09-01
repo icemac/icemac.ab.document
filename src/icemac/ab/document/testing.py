@@ -4,15 +4,21 @@ import icemac.addressbook.testing
 class Browser(icemac.addressbook.testing.Browser):
     """Browser adapted for documents."""
 
-    BASE = 'http://localhost/ab/'
-    DOCUMENTS_OVERVIEW_URL = BASE + '++attribute++documents'
-    DOCUMENTS_INDEX_URL = BASE + '++attribute++documents/@@index.html'
+    BASE = 'http://localhost/ab/++attribute++documents'
+    DOCUMENTS_OVERVIEW_URL = BASE
+    DOCUMENTS_INDEX_URL = BASE + '/@@index.html'
 
-    DOCUMENT_ADD_URL = BASE + '++attribute++documents/@@addDocument.html'
-    DOCUMENT_IN_ROOT_DOWNLOAD_URL = BASE + '++attribute++documents/Document'
-    DOCUMENT_IN_ROOT_EDIT_URL = BASE + (
-        '++attribute++documents/Document/@@edit.html')
-    FOLDER_IN_ROOT_VIEW_URL = BASE + '++attribute++documents/Folder'
+    DOCUMENT_ADD_URL = BASE + '/@@addDocument.html'
+    DOCUMENT_IN_ROOT_DOWNLOAD_URL = BASE + '/Document'
+    DOCUMENT_IN_ROOT_EDIT_URL = BASE + '/Document/@@edit.html'
+    DOCUMENT_IN_ROOT_DELETE_URL = BASE + '/Document/@@delete.html'
+
+
+    FOLDER_ADD_URL = BASE + '/@@addFolder.html'
+    FOLDER_IN_ROOT_VIEW_URL = BASE + '/Folder'
+    FOLDER2_IN_ROOT_VIEW_URL = BASE + '/Folder-2'
+    FOLDER_IN_ROOT_EDIT_URL = BASE + '/Folder/@@edit.html'
+    FOLDER_IN_ROOT_DELETE_URL = BASE + '/Folder/@@delete.html'
 
 
 class DocumentWebdriverPageObjectBase(
