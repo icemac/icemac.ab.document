@@ -48,6 +48,5 @@
 
   <include package=".browser" />
   <include package=".generations" />
-  <!-- <include package=".masterdata" /> -->
 
 </configure>
