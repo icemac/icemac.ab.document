@@ -47,5 +47,6 @@
 
   <include file="document.zcml" />
   <include file="folder.zcml" />
+  <include file="rootfolder.zcml" />
 
 </configure>

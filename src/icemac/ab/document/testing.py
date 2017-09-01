@@ -13,6 +13,8 @@ class Browser(icemac.addressbook.testing.Browser):
     DOCUMENT_IN_ROOT_EDIT_URL = BASE + '/Document/@@edit.html'
     DOCUMENT_IN_ROOT_DELETE_URL = BASE + '/Document/@@delete.html'
 
+    ROOT_FOLDER_EDIT_URL = BASE + '/@@edit.html'
+    ROOT_FOLDER_DELETE_URL = BASE + '/@@delete.html'
 
     FOLDER_ADD_URL = BASE + '/@@addFolder.html'
     FOLDER_IN_ROOT_VIEW_URL = BASE + '/Folder'
