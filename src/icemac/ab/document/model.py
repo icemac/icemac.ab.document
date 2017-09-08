@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from icemac.addressbook.i18n import _
+import grokcore.component as grok
 import icemac.ab.document.interfaces
 import icemac.addressbook.entities
 import icemac.addressbook.file.file
@@ -10,14 +11,24 @@ import zope.interface
 import zope.schema.fieldproperty
 
 
-@zope.interface.implementer(
-    icemac.ab.document.interfaces.IRootFolder,
-    icemac.ab.document.interfaces.IFolder)
+@zope.interface.implementer(icemac.ab.document.interfaces.IRootFolder)
 class RootFolder(zope.container.btree.BTreeContainer):
-    """Top level container for documents and/or folders."""
+    """Top level container for documents and/or folders.
+
+    This class must not implement `IFolder` as this causes too many
+    interferences in places where this object should behave differently from
+    `IFolder`.
+    """
 
     zope.schema.fieldproperty.createFieldProperties(
-        icemac.ab.document.interfaces.IFolder)
+        icemac.ab.document.interfaces.IRootFolder)
+
+
+@grok.adapter(icemac.ab.document.interfaces.IDocumentsProvider)
+@grok.implementer(icemac.ab.document.interfaces.IRootFolder)
+def documents_for_address_book(context):
+    """Get the documents root folder of an address book."""
+    return context.documents
 
 
 @zope.interface.implementer(

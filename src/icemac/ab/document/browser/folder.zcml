@@ -5,9 +5,21 @@
    xmlns:z3c="http://namespaces.zope.org/z3c"
    i18n_domain="icemac.addressbook">
 
+  <!-- IRootFolder -->
+
+  <z3c:pagelet
+     for="icemac.ab.document.interfaces.IRootFolder"
+     layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
+     name="index.html"
+     class=".folder.List"
+     permission="icemac.ab.document.ViewFolder"
+     />
+
+  <!-- IFolder -->
+
   <z3c:addMenuItem
      manager="icemac.addressbook.browser.menus.interfaces.IAddMenu"
-     for="icemac.ab.document.interfaces.IFolder"
+     for="icemac.ab.document.interfaces.IFolderish"
      layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
      name="folder"
      title="folder"
@@ -26,7 +38,7 @@
      />
 
   <z3c:pagelet
-     for="icemac.ab.document.interfaces.IFolder"
+     for="icemac.ab.document.interfaces.IFolderish"
      layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
      name="addFolder.html"
      class=".folder.Add"

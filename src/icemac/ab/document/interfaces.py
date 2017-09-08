@@ -24,11 +24,17 @@ class IDocumentObject(zope.interface.Interface):
     """
 
 
-class IRootFolder(IDocumentObject):
+class IFolderish(zope.interface.Interface):
+    """Marker interface for objects which behave like folders."""
+
+
+class IRootFolder(IDocumentObject,
+                  IFolderish):
     """Top level storage for folders and documents."""
 
 
-class IFolder(IDocumentObject):
+class IFolder(IDocumentObject,
+              IFolderish):
     """Storage for containers and documents."""
 
     title = zope.schema.TextLine(

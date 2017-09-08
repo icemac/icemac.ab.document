@@ -1,12 +1,10 @@
-import pytest
-
-
-@pytest.mark.webdriver
-def test_startpage__documents__1_webdriver(address_book, webdriver):
+def test_startpage__documents__2(address_book, browser):
     """It redirects to the documents if this is set on the address book."""
-    ab = webdriver.address_book
-    webdriver.login('mgr', ab.ADDRESS_BOOK_EDIT_URL)
-    ab.startpage = 'Documents'
-    ab.submit('apply')
-    webdriver.open(ab.ADDRESS_BOOK_DEFAULT_URL)
-    assert webdriver.documents.DOCUMENTS_INDEX_URL == webdriver.path
+    browser.login('mgr')
+    browser.open(browser.ADDRESS_BOOK_EDIT_URL)
+    browser.getControl('start page after log-in').displayValue = 'Documents'
+    browser.select_favicon()
+    browser.getControl('Apply').click()
+    assert 'Data successfully updated.' == browser.message
+    browser.open(browser.ADDRESS_BOOK_DEFAULT_URL)
+    assert browser.DOCUMENTS_INDEX_URL == browser.url

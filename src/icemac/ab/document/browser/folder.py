@@ -8,7 +8,10 @@ import zope.schema
 
 
 class List(icemac.addressbook.browser.table.Table):
-    """List the contents of a folder."""
+    """List the contents of a folder.
+
+    Also used for the root folder.
+    """
 
     title = icemac.addressbook.browser.breadcrumb.DO_NOT_SHOW
     no_rows_message = _('This folder is (currently) empty.')
