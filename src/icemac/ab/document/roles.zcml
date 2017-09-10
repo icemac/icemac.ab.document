@@ -5,7 +5,7 @@
   <!-- Global role to use this module -->
   <role
       id="icemac.ab.document.User"
-      title="Docment user"
+      title="Document user"
       description="Role which allows to use the documents at all."
       />
 
