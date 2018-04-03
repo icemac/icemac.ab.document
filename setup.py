@@ -49,7 +49,7 @@ setuptools.setup(
     zip_safe=False,
     install_requires=[
         'grokcore.annotation',
-        'icemac.addressbook >= 4.2.dev0',
+        'icemac.addressbook >= 7.0.dev0',
         'setuptools',
     ],
     extras_require=dict(

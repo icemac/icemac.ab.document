@@ -11,7 +11,8 @@ def document_menu(address_book, browser, sitemenu):
 
 def test_menu__document_menu__1(document_menu):
     """Asserting that the menu with the index 2 is `Documents`."""
-    document_menu.assert_correct_menu_item_is_tested()
+    assert (document_menu.menu_item_title
+            == document_menu.get_menu_item_title_under_test())
 
 
 def test_menu__document_menu__2(document_menu):
