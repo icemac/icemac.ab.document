@@ -5,7 +5,7 @@ import setuptools
 
 def read(*path_elements):
     """Read file."""
-    return file(os.path.join(*path_elements)).read()
+    return open(os.path.join(*path_elements)).read()
 
 
 version = '0.1.dev0'
