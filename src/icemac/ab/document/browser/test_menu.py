@@ -27,25 +27,21 @@ def test_menu__document_menu__3(document_menu):
 
 
 def test_menu__document_menu__4(address_book, document_menu, DocumentFactory):
-    """The documents tab is not selected on a document."""
+    """The documents tab is selected on a document."""
     DocumentFactory(address_book, 'foo.doc', 'foo doc')
-    # document_menu.browser.handleErrors = False
     assert document_menu.item_selected(
         document_menu.browser.DOCUMENT_IN_ROOT_EDIT_URL)
 
 
 def test_menu__document_menu__5(address_book, document_menu, FolderFactory):
-    """The documents tab is not selected on a folder."""
+    """The documents tab is selected on a folder."""
     FolderFactory(address_book, 'foo folder')
     assert document_menu.item_selected(
         document_menu.browser.FOLDER_IN_ROOT_VIEW_URL)
 
 
 def test_menu__DocumentMenuItem__1(address_book, browser):
-    """It allows to navigate the to calendar.
-
-    The calendar view defaults to the month overview.
-    """
+    """It allows to navigate the to documents list."""
     browser.login('mgr')
     browser.open(browser.ADDRESS_BOOK_DEFAULT_URL)
     assert browser.DOCUMENTS_OVERVIEW_URL == browser.getLink('Documents').url

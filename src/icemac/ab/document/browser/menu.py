@@ -1,4 +1,5 @@
 import grokcore.component as grok
+import icemac.ab.document.interfaces
 import icemac.addressbook.browser.interfaces
 import icemac.addressbook.browser.menus.menu
 import z3c.menu.ready2go.checker
