@@ -19,7 +19,7 @@ def test_folder__Add__List__Edit__Delete__1(address_book, browser):
     browser.getLink('Edit').click()
     assert 'föø' == browser.getControl('folder title').value
     browser.getControl('folder title').value = 'bä®'
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'Data successfully updated.' == browser.message
     assert browser.DOCUMENTS_OVERVIEW_URL == browser.url
 
@@ -63,7 +63,7 @@ def test_folder__Edit__1(address_book, FolderFactory, browser):
     browser.login('mgr')
     browser.open(browser.FOLDER_IN_ROOT_EDIT_URL)
     browser.getControl('folder title').value = 'foo'
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'There were some errors.' in browser.contents
     assert ('There is already an object with this title in this folder.'
             in browser.contents)
@@ -77,7 +77,7 @@ def test_folder__Edit__2(address_book, FolderFactory, browser):
     browser.login('mgr')
     browser.open(browser.FOLDER_IN_ROOT_EDIT_URL)
     browser.getControl('folder title').value = 'foo'
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'Data successfully updated.' == browser.message
     assert browser.DOCUMENTS_OVERVIEW_URL == browser.url
 

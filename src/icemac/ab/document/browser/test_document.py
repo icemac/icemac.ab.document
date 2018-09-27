@@ -48,7 +48,7 @@ def test_document__Add__Download__Edit__Delete__1(
     # Field values can be changed:
     browser.getControl('document title').value = 'bar'
     browser.getControl('file name').value = 'bar.txt'
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'Data successfully updated.' == browser.message
 
     # Download
@@ -100,7 +100,7 @@ def test_document__Edit__1(address_book, DocumentFactory, browser):
     browser.login('mgr')
     browser.open(browser.DOCUMENT_IN_ROOT_EDIT_URL)
     browser.getControl('document title').value = 'foo'
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'There were some errors.' in browser.contents
     assert ('There is already an object with this title in this folder.'
             in browser.contents)
@@ -115,7 +115,7 @@ def test_document__Edit__2(
     browser.login('mgr')
     browser.open(browser.DOCUMENT_IN_ROOT_EDIT_URL)
     browser.getControl('document title').value = 'foo'
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'Data successfully updated.' == browser.message
     assert browser.DOCUMENTS_OVERVIEW_URL == browser.url
 

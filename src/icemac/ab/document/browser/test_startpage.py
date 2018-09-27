@@ -4,7 +4,7 @@ def test_startpage__documents__2(address_book, browser):
     browser.open(browser.ADDRESS_BOOK_EDIT_URL)
     browser.getControl('start page after log-in').displayValue = 'Documents'
     browser.select_favicon()
-    browser.getControl('Apply').click()
+    browser.getControl('Save').click()
     assert 'Data successfully updated.' == browser.message
     browser.open(browser.ADDRESS_BOOK_DEFAULT_URL)
     assert browser.DOCUMENTS_INDEX_URL == browser.url
