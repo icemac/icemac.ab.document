@@ -1,5 +1,6 @@
 from icemac.addressbook.i18n import _
 import icemac.addressbook.file.interfaces
+import icemac.addressbook.utils
 import zope.interface
 
 
@@ -42,7 +43,20 @@ class IFolder(IDocumentObject,
         description=_(u'Name which is shown in the list view.'))
 
 
-class IDocument(icemac.addressbook.file.interfaces.IFile):
+class IDocumentBase(icemac.addressbook.file.interfaces.IFile):
+    """Base class for IDocument.
+
+    Needed for copying the schema field so we do not get the customizations of
+    IFile.
+    """
+
+
+# Copy schema fields, reason see above.
+icemac.addressbook.utils.copy_schema_fields(
+    icemac.addressbook.file.interfaces.IFile, IDocumentBase)
+
+
+class IDocument(IDocumentBase):
     """Document storing binary data."""
 
     title = zope.schema.TextLine(

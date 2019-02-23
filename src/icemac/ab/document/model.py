@@ -32,7 +32,8 @@ def documents_for_address_book(context):
 
 
 @zope.interface.implementer(
-    icemac.ab.document.interfaces.IFolder)
+    icemac.ab.document.interfaces.IFolder,
+    icemac.addressbook.interfaces.IMayHaveCustomizedPredfinedFields)
 class Folder(zope.container.btree.BTreeContainer):
     """Container containing documents and/or other folders."""
 
@@ -44,7 +45,9 @@ folder_entity = icemac.addressbook.entities.create_entity(
     _(u'folder'), icemac.ab.document.interfaces.IFolder, Folder)
 
 
-@zope.interface.implementer(icemac.ab.document.interfaces.IDocument)
+@zope.interface.implementer(
+    icemac.ab.document.interfaces.IDocument,
+    icemac.addressbook.interfaces.IMayHaveCustomizedPredfinedFields)
 class Document(icemac.addressbook.file.file.BaseFile):
     """Container containing documents and/or other folders."""
 
