@@ -2,7 +2,7 @@ This package provides a document storage feature for `icemac.addressbook`_.
 
 .. _`icemac.addressbook` : https://pypi.org/project/icemac.addressbook/
 
-Copyright (c) 2017-2018 Michael Howitz
+Copyright (c) 2017-2019 Michael Howitz
 
 This package is licensed under the MIT License, see LICENSE.txt inside the
 package.
