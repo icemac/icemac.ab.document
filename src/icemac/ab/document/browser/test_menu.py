@@ -6,7 +6,7 @@ import pytest
 def document_menu(address_book, browser, sitemenu):
     """Fixture to test the document menu."""
     browser.login('mgr')
-    return sitemenu(browser, 2, 'Documents', browser.DOCUMENTS_OVERVIEW_URL)
+    return sitemenu(browser, 3, 'Documents', browser.DOCUMENTS_OVERVIEW_URL)
 
 
 def test_menu__document_menu__1(document_menu):
