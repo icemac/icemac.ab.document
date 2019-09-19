@@ -32,7 +32,9 @@ class List(icemac.addressbook.browser.table.Table):
 
     @property
     def values(self):
-        return self.context.values()
+        for document_or_folder in self.context.values():
+            if zope.security.canAccess(document_or_folder, 'title'):
+                yield document_or_folder
 
 
 class Add(icemac.addressbook.browser.base.BaseAddForm):

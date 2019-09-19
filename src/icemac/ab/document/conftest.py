@@ -45,11 +45,19 @@ def sitemenu(browser):
 
 @pytest.fixture(scope='session')
 def FolderFactory():
-    """Create a document folder."""
-    def create_folder(address_book, title, parent=None, **kw):
+    """Create a document folder.
+
+    read_only ... iterable of keyword objects for read only access
+    read_write ... iterable of keyword objects for read & write access
+
+    """
+    def create_folder(address_book, title, parent=None, read_only=(),
+                      read_write=(), **kw):
         if parent is None:
             parent = address_book.documents
         kw['title'] = title
+        kw['read_only'] = set(read_only)
+        kw['read_write'] = set(read_write)
         return icemac.addressbook.testing.create(
             address_book, parent, icemac.ab.document.interfaces.IFolder, **kw)
     return create_folder

@@ -1,8 +1,10 @@
 from icemac.addressbook.i18n import _
+import gocept.reference.field
 import icemac.addressbook.file.interfaces
+import icemac.addressbook.interfaces
 import icemac.addressbook.utils
 import zope.interface
-
+import zope.schema
 
 PACKAGE_ID = 'icemac.ab.document'
 
@@ -41,6 +43,26 @@ class IFolder(IDocumentObject,
     title = zope.schema.TextLine(
         title=_(u'folder title'),
         description=_(u'Name which is shown in the list view.'))
+
+    read_only = gocept.reference.field.Set(
+        title=_('read only access'),
+        description=_(
+            'Persons with at least one of the selected keywords have read'
+            ' only access in this folder.'),
+        required=False,
+        value_type=zope.schema.Choice(
+            title=_('keywords'),
+            source=icemac.addressbook.interfaces.keyword_source))
+
+    read_write = gocept.reference.field.Set(
+        title=_('read and write access'),
+        description=_(
+            'Persons with at least one of the selected keywords have read'
+            ' and write access in this folder.'),
+        required=False,
+        value_type=zope.schema.Choice(
+            title=_('keywords'),
+            source=icemac.addressbook.interfaces.keyword_source))
 
 
 class IDocumentBase(icemac.addressbook.file.interfaces.IFile):

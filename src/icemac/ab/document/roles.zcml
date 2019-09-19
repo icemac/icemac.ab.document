@@ -28,6 +28,12 @@
       description="Role which allows to edit documents and folders."
       />
 
+  <grant
+     role="icemac.ab.document.Editor"
+     permissions="
+        icemac.ab.document.ViewFolder
+     " />
+
 
   <!-- Visitor: local role on folder -->
   <role
@@ -35,6 +41,12 @@
       title="Document visitor"
       description="Role which allows to visit documents and folders."
       />
+
+  <grant
+     role="icemac.ab.document.Visitor"
+     permissions="
+        icemac.ab.document.ViewFolder
+     " />
 
 
   <!-- Administrator -->

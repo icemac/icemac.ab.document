@@ -12,7 +12,7 @@
      layer="icemac.addressbook.browser.interfaces.IAddressBookLayer"
      name="index.html"
      class=".folder.List"
-     permission="icemac.ab.document.ViewFolder"
+     permission="icemac.ab.document.UseDocuments"
      />
 
   <!-- IFolder -->
@@ -27,7 +27,6 @@
      permission="icemac.ab.document.AddFolder"
      weight="1"
      />
-
 
   <z3c:pagelet
      for="icemac.ab.document.interfaces.IFolder"
