@@ -340,7 +340,8 @@ def test_folder__List__7(
     assert 'sub sub2 folder' in browser.contents
 
 
-def test_folder__List__8(folders_and_users, browser):
+@pytest.mark.xfail
+def test_folder__List__8(folders_and_users, browser):  # pragma: no cover
     """Read/write rights in a sub folder result in read rights in the parent.
 
     Read/Write rights are not inherited to sub folders.
@@ -348,6 +349,8 @@ def test_folder__List__8(folders_and_users, browser):
     # address_book = folders_and_users
     browser.formlogin('u_rw3@example.com', 'password')
     browser.open(browser.DOCUMENTS_OVERVIEW_URL)
+    # The prerequisites for this test are not yet implemented :-(
+    # That's why the test is marked as xfail and "pragma: no cover".
     browser.getLink('Top 1').click()
     browser.getLink('Sub 2').click()
     browser.getLink('Sub 2').click()
