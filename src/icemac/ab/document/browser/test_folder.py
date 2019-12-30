@@ -218,7 +218,9 @@ def test_folder__List__1(address_book, UserFactory, browser):
     browser.formlogin('vv@example.com', '1qay2wsx')
     assert [
         'Master data',
-    ] == browser.etree.xpath('//ul[@id="main-menu"]/li/a/span/text()')
+        'About',
+    ] == browser.etree.xpath(
+        '//div[@class="menuToggle main-menu"]/ul/li/a/span/text()')
 
     with pytest.raises(zope.testbrowser.browser.HTTPError) as err:
         browser.open(browser.DOCUMENTS_OVERVIEW_URL)
